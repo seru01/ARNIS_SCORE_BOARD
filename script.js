@@ -181,21 +181,36 @@ document.addEventListener("DOMContentLoaded", function () {
     isTimerRunning = false; // Update the flag
     timePlayBtn.disabled = false; // Re-enable the button
   });
+  // NEW GAME
+  const newgamebtn = document.getElementById("NEWGAME");
+  newgamebtn.addEventListener("click", () => {
+    clearInterval(countdownInterval);
+    timeLeft = 60;
+    timerDisplay.textContent = "1:00";
+    isTimerRunning = false; // Update the flag
+    timePlayBtn.disabled = false; // Re-enable the button
+  });
 });
 // ADVANTAGE POINT
 document.getElementById("AdvantageRED").addEventListener("click", function () {
-  document.getElementsByClassName("AvantageInd")[0].style.borderTop =
-    "50px solid red";
+  document.getElementsByClassName("AvantageIndupper")[0].style.borderTop =
+    "70px solid red";
+  document.getElementsByClassName("AvantageIndlower")[0].style.borderBottom =
+    "70px solid red";
 });
 
 document.getElementById("AdvantageBLUE").addEventListener("click", function () {
-  document.getElementsByClassName("AvantageInd")[0].style.borderTop =
-    "50px solid blue";
+  document.getElementsByClassName("AvantageIndupper")[0].style.borderTop =
+    "70px solid blue";
+  document.getElementsByClassName("AvantageIndlower")[0].style.borderBottom =
+    "70px solid blue";
 });
 
 document.getElementById("AdvantageCLR").addEventListener("click", function () {
-  document.getElementsByClassName("AvantageInd")[0].style.borderTop =
-    "50px solid #555";
+  document.getElementsByClassName("AvantageIndupper")[0].style.borderTop =
+    "70px solid #555";
+  document.getElementsByClassName("AvantageIndlower")[0].style.borderBottom =
+    "70px solid #555";
 });
 
 // ROUND COUNT
@@ -289,7 +304,6 @@ document
 
 // RESET SCORE
 const resetButton = document.getElementById("RESETBTN");
-
 resetButton.addEventListener("click", () => {
   // RESET RED SCORE
   redScore = 0;
@@ -304,20 +318,45 @@ resetButton.addEventListener("click", () => {
   BlueScore = 0;
   BLScoreDisplay.textContent = BlueScore;
   // RESET STYLE
-  document.getElementsByClassName("AvantageInd")[0].style.borderTop =
-    "50px solid #555";
+  document.getElementsByClassName("AvantageIndupper")[0].style.borderTop =
+    "70px solid #555";
+  document.getElementsByClassName("AvantageIndlower")[0].style.borderBottom =
+    "70px solid #555";
+});
+
+// NEW GAME
+const newgamebtn = document.getElementById("NEWGAME");
+
+newgamebtn.addEventListener("click", () => {
+  // RESET RED SCORE
+  redScore = 0;
+  redScoreDisplay.textContent = redScore;
+  // RESET RED FOUL
+  Redfoul = 0;
+  redFoulDisplay.textContent = Redfoul;
+  // RESET RED DISARM
+  RedDisarm = 0;
+  redDisarmDisplay.textContent = RedDisarm;
+  // RESET BLUE SCORE
+  BlueScore = 0;
+  BLScoreDisplay.textContent = BlueScore;
+  // RESET STYLE
+  document.getElementsByClassName("AvantageIndupper")[0].style.borderTop =
+    "70px solid #555";
+  document.getElementsByClassName("AvantageIndlower")[0].style.borderBottom =
+    "70px solid #555";
   //RESET ROUND COUNT
-  // roundCount = 1;
-  // roundCountElement.textContent = roundCount;
+  roundCount = 1;
+  roundCountElement.textContent = roundCount;
   //RESET ROUND WINNER INDICATOR
   // RED
-  // RWinRed1Clicked = false;
-  // document.getElementById("RWinRed1").style.backgroundColor = "green";
-  // RWinRed2Clicked = false;
-  // document.getElementById("RWinRed2").style.backgroundColor = "green";
-  // // BLUE
-  // RWinBlue1Clicked = false;
-  // document.getElementById("RWinBlue1").style.backgroundColor = "green";
-  // RWinBlue2Clicked = false;
-  // document.getElementById("RWinBlue2").style.backgroundColor = "green";
+  RWinRed1Clicked = false;
+  document.getElementById("RWinRed1").style.backgroundColor = "green";
+  RWinRed2Clicked = false;
+  document.getElementById("RWinRed2").style.backgroundColor = "green";
+  // BLUE
+  RWinBlue1Clicked = false;
+  document.getElementById("RWinBlue1").style.backgroundColor = "green";
+  RWinBlue2Clicked = false;
+  document.getElementById("RWinBlue2").style.backgroundColor = "green";
 });
