@@ -1,0 +1,386 @@
+body {
+  overflow: hidden;
+  margin: 0%;
+}
+.canvas {
+  margin: 0%;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(24, 24, 24);
+}
+.GameStatus {
+  height: 10vh;
+  width: 100vw;
+  background-color: rgb(255, 49, 49);
+}
+.ScoreBoard {
+  height: 60vh;
+  width: 100vw;
+  background-color: rgb(49, 179, 255);
+}
+.ControlPanel {
+  height: 30vh;
+  width: 100vw;
+  background-color: rgb(49, 255, 83);
+}
+
+.GameStatus,
+.ControlPanel,
+.ScoreBoard {
+  border: 1px solid white;
+}
+
+/* GAME STATUS */
+.GameStatus::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#RedStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: aqua;
+}
+
+.LifeBar {
+  height: 10vh;
+  width: 50%;
+  background-color: red;
+}
+
+.WinStat {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+  /* Add styles for RedWin if needed */
+}
+#RWinRed1 {
+  height: 10vh;
+  width: 10vh;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: green;
+}
+#RWinRed2 {
+  height: 10vh;
+  width: 10vh;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: green;
+}
+#RWinBlue1 {
+  height: 10vh;
+  width: 10vh;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: green;
+}
+#RWinBlue2 {
+  height: 10vh;
+  width: 10vh;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: green;
+}
+
+#BlueStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: aqua;
+}
+#Round {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background-color: rgb(31, 31, 31);
+}
+
+.RoundCount {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 80px;
+  color: white;
+  text-align: center;
+}
+
+/* SCORE BOARD*/
+.column {
+  float: left;
+  width: 33.33%;
+}
+.ScoreBoard::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#RedScoreVal {
+  height: 60vh;
+  margin: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 500px;
+  color: rgb(0, 0, 0);
+}
+#BlueScoreVal {
+  height: 60vh;
+  margin: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 500px;
+  color: rgb(0, 0, 0);
+}
+.ScoreCountRedBG {
+  background-color: red;
+  height: 60vh;
+}
+.ScoreCountBlueBG {
+  background-color: blue;
+  height: 60vh;
+}
+/* TIMER */
+#Timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+  background-color: rgb(255, 217, 0);
+}
+
+.timeCount {
+  font-size: 200px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  margin: 0; /* Add this to remove default margins */
+  display: inline-block;
+  position: relative;
+}
+
+.AvantageInd {
+  border-top: 50px solid #555;
+  border-left: 50px solid transparent; /* Adjust width as needed */
+  border-right: 50px solid transparent; /* Adjust width as needed */
+  width: 200px; /* Adjust width as needed */
+  margin-bottom: 0; /* Add this to remove bottom margin */
+}
+
+#BlueScore {
+  height: 60vh;
+  background-color: rgb(38, 0, 255);
+}
+/* RED SCORE CONTENT */
+.column#RedScore {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
+}
+.ScoreCard {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-top: 0;
+  height: 60vh;
+  width: 60vh;
+}
+.VioLation {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  width: 20vh;
+  background-color: pink;
+}
+.Foul,
+.Disarm {
+  flex: 1; /* Equal distribution of space */
+}
+
+.Foul {
+  background-color: rgb(255, 94, 0);
+  border: 1px solid black;
+}
+
+.Disarm {
+  background-color: rgb(255, 94, 0);
+  border: 1px solid black;
+}
+/* BLUE SCORE CONTENT */
+.column#BlueScore {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically */
+}
+
+/* Foul */
+.FoulTitle {
+  margin-top: 0%;
+  height: 20px;
+  width: 20vh;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  color: white;
+  font: bolder;
+  font-size: large;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+#FoulCountRed {
+  margin: 0%;
+  text-align: center;
+  font-size: 200px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+#FoulCountBlue {
+  margin: 0%;
+  text-align: center;
+  font-size: 200px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+/* Disarm */
+.DisarmTitle {
+  margin-top: 0%;
+  height: 20px;
+  width: 20vh;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  color: white;
+  font: bolder;
+  font-size: large;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.DisarmCount {
+  margin: 0%;
+  text-align: center;
+  font-size: 200px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+/* SCORE COUNT  */
+
+/* CONTROL PANEL */
+#RedControlls,
+#BlueControlls {
+  display: flex;
+  flex-direction: column; /* Change flex direction to column */
+  justify-content: space-evenly;
+  align-items: center;
+  height: 25vh;
+  background-color: aqua;
+}
+#NavigationPannel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25vh;
+}
+.ScoreControl,
+.FoulControl {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+  background-color: red;
+}
+.ScoreBTN {
+  height: 8vh;
+  width: 8vh;
+  border-radius: 100px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: rgb(43, 42, 42);
+  line-height: 4vh;
+  transition: box-shadow 0.2s ease-in-out;
+  transition-delay: 0.2s;
+}
+.ScoreBTN:hover {
+  box-shadow: 0 0 10px 5px yellow;
+}
+#TimerControls {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 8vh;
+  width: 100%;
+  background-color: red;
+}
+/* ROUND ACTIVITY CONTROLS */
+#RAControls {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  height: 12vh;
+  width: 100%;
+  background-color: red;
+}
+#RoundControls {
+  height: 12vh;
+  background-color: aqua;
+}
+#RoundWinControl {
+  height: 12vh;
+  background-color: rgb(251, 255, 0);
+}
+#Avantage {
+  height: 12vh;
+  background-color: rgb(0, 133, 33);
+}
+.RA_Titles {
+  height: 25px;
+  background-color: hsl(0, 0%, 0%);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 15px;
+  color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.RoundControlNavs {
+  display: flex;
+  justify-content: space-evenly; /* Center items horizontally */
+}
+.RctrlBTN {
+  margin-top: 10px;
+  height: 5vh;
+  width: 5vh;
+  border-radius: 100px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(43, 42, 42);
+  line-height: 1vh;
+}
+/* RESET CONTROLS */
+#ResetControls {
+  margin-top: 5px;
+  height: 8vh;
+  width: 100%;
+  background-color: red;
+}
+.ResetBTN {
+  height: 6vh;
+  width: 20vh;
+  border-radius: 5px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(43, 42, 42);
+  line-height: 1vh;
+}
+
+/* Time Controls*/
+.TimeBTN {
+  height: 5vh;
+  width: 5vh;
+  border-radius: 100px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: rgb(43, 42, 42);
+  line-height: 4vh;
+  text-align: center;
+  transition: box-shadow 0.2s ease-in-out;
+  transition-delay: 0.2s;
+}
+.TimeBTN:hover {
+  box-shadow: 0 0 10px 5px yellow;
+}

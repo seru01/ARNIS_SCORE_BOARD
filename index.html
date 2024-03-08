@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScoreBoard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="GameStatus">
+        <div class="column" id="RedStatus">
+          <div class="LifeBar" id="RedLifeBar"></div>
+          <div class="WinStat">
+            <div id="RWinRed1"></div>
+            <div id="RWinRed2"></div>
+          </div>
+        </div>
+        <div class="column" id="Round">
+          <p class="RoundCount">ROUND <span id="RoundCount">1</span></p>
+        </div>
+        <div class="column" id="BlueStatus">
+          <div class="WinStat">
+            <div id="RWinBlue2"></div>
+            <div id="RWinBlue1"></div>
+          </div>
+          <div class="LifeBar" id="RedLifeBar"></div>
+        </div>
+      </div>
+      <div class="ScoreBoard">
+        <!-- REDSCORE CARD -->
+        <div class="column" id="RedScore">
+          <div class="ScoreCard">
+            <p class="ScoreCountRedBG" id="RedScoreVal">0</p>
+          </div>
+          <!-- RED VIOLATION -->
+          <div class="VioLation">
+            <div class="Foul">
+              <p class="FoulTitle">FOUL</p>
+              <p id="FoulCountRed">O</p>
+            </div>
+            <div class="Disarm">
+              <p class="DisarmTitle">DISARM</p>
+              <p class="DisarmCount" id="RedDisarmCount">O</p>
+            </div>
+          </div>
+        </div>
+        <div class="column" id="Timer">
+          <div class="AvantageInd" id="AvantagePoint"></div>
+          <p class="timeCount" id="timerDisplay">1:00.0</p>
+        </div>
+        <div class="column" id="BlueScore">
+          <!-- BLUE VIOLATION -->
+          <div class="VioLation">
+            <div class="Foul">
+              <p class="FoulTitle">FOUL</p>
+              <p id="FoulCountBlue">O</p>
+            </div>
+            <div class="Disarm">
+              <p class="DisarmTitle">DISARM</p>
+              <p class="DisarmCount" id="BlueDisarmCount">O</p>
+            </div>
+          </div>
+          <div class="BlueVioLation"></div>
+          <div class="ScoreCard">
+            <p class="ScoreCountBlueBG" id="BlueScoreVal">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="ControlPanel">
+        <div class="column" id="RedControlls">
+          <div class="ScoreControl">
+            <button class="ScoreBTN" id="RedincreseScore">+</button>
+            <button class="ScoreBTN" id="RedDecreseScore">-</button>
+          </div>
+          <div class="FoulControl">
+            <button class="ScoreBTN" id="RedFoulInc">F+</button>
+            <button class="ScoreBTN" id="RedFoulDec">F-</button>
+            <button class="ScoreBTN" id="RedDisarmInc">D+</button>
+            <button class="ScoreBTN" id="RedDisarmDec">D-</button>
+          </div>
+        </div>
+        <div class="column" id="NavigationPannel">
+          <div class="column" id="TimerControls">
+            <button class="TimeBTN" id="TimePlay">
+              <i style="font-size: 15px" class="fa">&#xf04b;</i>
+            </button>
+            <button class="TimeBTN" id="TimePause">
+              <i style="font-size: 15px" class="fa">&#xf04c;</i>
+            </button>
+            <button class="TimeBTN" id="TimeReset">
+              <i style="font-size: 15px" class="fa">&#xf021;</i>
+            </button>
+          </div>
+          <div class="column" id="RAControls">
+            <div class="column" id="RoundControls">
+              <div class="RA_Titles"><p>RoundControl</p></div>
+              <div class="RoundControlNavs">
+                <button class="RctrlBTN" id="RoundInc">+</button>
+                <button class="RctrlBTN" id="RoundDec">-</button>
+                <button class="RctrlBTN" id="RoundClear">C</button>
+              </div>
+            </div>
+            <div class="column" id="RoundWinControl">
+              <div class="RA_Titles"><p>Round Winner</p></div>
+              <div class="RoundControlNavs">
+                <button class="RctrlBTN" id="RoundWinnerIncRED">+</button>
+                <button class="RctrlBTN" id="RoundWinnerDecRED">-</button>
+                <button class="RctrlBTN" id="RoundWinnerIncBLUE">+</button>
+                <button class="RctrlBTN" id="RoundWinnerDecBLUE">-</button>
+              </div>
+            </div>
+            <div class="column" id="Avantage">
+              <div class="RA_Titles"><p>AdvantagePoint</p></div>
+              <div class="RoundControlNavs">
+                <button class="RctrlBTN" id="AdvantageRED">R</button>
+                <button class="RctrlBTN" id="AdvantageBLUE">B</button>
+                <button class="RctrlBTN" id="AdvantageCLR">C</button>
+              </div>
+            </div>
+          </div>
+          <div class="column" id="ResetControls">
+            <div class="RoundControlNavs">
+              <button class="ResetBTN" id="RESETBTN">RESET</button>
+            </div>
+          </div>
+        </div>
+        <div class="column" id="BlueControlls">
+          <div class="ScoreControl">
+            <button class="ScoreBTN" id="BlueincreseScore">+</button>
+            <button class="ScoreBTN" id="BlueDecreseScore">-</button>
+          </div>
+          <div class="FoulControl">
+            <button class="ScoreBTN" id="BlueFoulInc">F+</button>
+            <button class="ScoreBTN" id="BlueFoulDec">F-</button>
+            <button class="ScoreBTN" id="BlueDisarmInc">D+</button>
+            <button class="ScoreBTN" id="BlueDisarmDec">D-</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
