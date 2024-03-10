@@ -16,6 +16,8 @@ body {
 .ScoreBoard {
   height: 60vh;
   width: 100vw;
+  display: flex;
+  justify-content: space-between;
   background-color: rgb(0, 0, 0);
 }
 .ControlPanel {
@@ -127,30 +129,38 @@ body {
   display: table;
   clear: both;
 }
-#RedScoreVal {
-  height: 60vh;
+.ScoreCountRedBG,
+.ScoreCountBlueBG {
+  width: 50%; /* Each container takes half of the space */
+  height: 100%; /* Fill the parent container */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.ScoreCountRedBG {
+  width: 40vh;
+  background-color: rgb(24, 24, 24);
+}
+
+.ScoreCountBlueBG {
+  width: 40vh;
+  background-color: rgb(24, 24, 24);
+}
+
+#RedScoreVal,
+#BlueScoreVal {
   margin: 0;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 400px;
-  color: rgb(255, 0, 0);
+}
+#RedScoreVal {
+  color: red;
 }
 #BlueScoreVal {
-  height: 60vh;
-  margin: 0;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 400px;
-  color: rgb(0, 26, 255);
+  color: blue;
 }
-.ScoreCountRedBG {
-  background-color: rgb(24, 24, 24);
-  height: 60vh;
-}
-.ScoreCountBlueBG {
-  background-color: rgb(24, 24, 24);
-  height: 60vh;
-}
+
 /* TIMER */
 #Timer {
   display: flex;
@@ -389,7 +399,7 @@ body {
 .ResetBTN {
   height: 6vh;
   width: 20vh;
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 20px;
   color: white;
   background-color: rgb(43, 42, 42);
