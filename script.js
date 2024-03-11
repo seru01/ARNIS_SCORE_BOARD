@@ -194,16 +194,16 @@ document.addEventListener("DOMContentLoaded", function () {
 // ADVANTAGE POINT
 document.getElementById("AdvantageRED").addEventListener("click", function () {
   document.getElementsByClassName("AvantageIndupper")[0].style.borderTop =
-    "70px solid red";
+    "70px solid #FF1E00";
   document.getElementsByClassName("AvantageIndlower")[0].style.borderBottom =
-    "70px solid red";
+    "70px solid #FF1E00";
 });
 
 document.getElementById("AdvantageBLUE").addEventListener("click", function () {
   document.getElementsByClassName("AvantageIndupper")[0].style.borderTop =
-    "70px solid blue";
+    "70px solid #0013DF";
   document.getElementsByClassName("AvantageIndlower")[0].style.borderBottom =
-    "70px solid blue";
+    "70px solid #0013DF";
 });
 
 document.getElementById("AdvantageCLR").addEventListener("click", function () {
@@ -255,12 +255,14 @@ document
   .getElementById("RoundWinnerIncRED")
   .addEventListener("click", function () {
     if (!RWinRed1Clicked) {
-      document.getElementById("RWinRed1").style.backgroundColor = "red";
-      document.getElementById("RWinRed1").style.boxShadow = "0 0 20px red";
+      document.getElementById("RWinRed1").style.backgroundColor = "chartreuse";
+      document.getElementById("RWinRed1").style.boxShadow =
+        "0 0 20px chartreuse";
       RWinRed1Clicked = true;
     } else if (!RWinRed2Clicked) {
-      document.getElementById("RWinRed2").style.backgroundColor = "red";
-      document.getElementById("RWinRed2").style.boxShadow = "0 0 20px red";
+      document.getElementById("RWinRed2").style.backgroundColor = "chartreuse";
+      document.getElementById("RWinRed2").style.boxShadow =
+        "0 0 20px chartreuse";
       RWinRed2Clicked = true;
     }
   });
@@ -269,11 +271,13 @@ document
   .getElementById("RoundWinnerDecRED")
   .addEventListener("click", function () {
     if (RWinRed2Clicked) {
-      document.getElementById("RWinRed2").style.backgroundColor = "white";
+      document.getElementById("RWinRed2").style.backgroundColor =
+        "rgb(39, 39, 39)";
       document.getElementById("RWinRed2").style.boxShadow = "none";
       RWinRed2Clicked = false;
     } else if (RWinRed1Clicked) {
-      document.getElementById("RWinRed1").style.backgroundColor = "white";
+      document.getElementById("RWinRed1").style.backgroundColor =
+        "rgb(39, 39, 39)";
       document.getElementById("RWinRed1").style.boxShadow = "none";
       RWinRed1Clicked = false;
     }
@@ -286,12 +290,14 @@ document
   .getElementById("RoundWinnerIncBLUE")
   .addEventListener("click", function () {
     if (!RWinBlue1Clicked) {
-      document.getElementById("RWinBlue1").style.backgroundColor = "red";
-      document.getElementById("RWinBlue1").style.boxShadow = "0 0 20px red";
+      document.getElementById("RWinBlue1").style.backgroundColor = "chartreuse";
+      document.getElementById("RWinBlue1").style.boxShadow =
+        "0 0 20px chartreuse";
       RWinBlue1Clicked = true;
     } else if (!RWinBlue2Clicked) {
-      document.getElementById("RWinBlue2").style.backgroundColor = "red";
-      document.getElementById("RWinBlue2").style.boxShadow = "0 0 20px red";
+      document.getElementById("RWinBlue2").style.backgroundColor = "chartreuse";
+      document.getElementById("RWinBlue2").style.boxShadow =
+        "0 0 20px chartreuse";
       RWinBlue2Clicked = true;
     }
   });
@@ -300,11 +306,13 @@ document
   .getElementById("RoundWinnerDecBLUE")
   .addEventListener("click", function () {
     if (RWinBlue2Clicked) {
-      document.getElementById("RWinBlue2").style.backgroundColor = "white";
+      document.getElementById("RWinBlue2").style.backgroundColor =
+        "rgb(39, 39, 39)";
       document.getElementById("RWinBlue2").style.boxShadow = "none";
       RWinBlue2Clicked = false;
     } else if (RWinBlue1Clicked) {
-      document.getElementById("RWinBlue1").style.backgroundColor = "white";
+      document.getElementById("RWinBlue1").style.backgroundColor =
+        "rgb(39, 39, 39)";
       document.getElementById("RWinBlue1").style.boxShadow = "none";
       RWinBlue1Clicked = false;
     }
@@ -359,16 +367,18 @@ newgamebtn.addEventListener("click", () => {
   //RESET ROUND WINNER INDICATOR
   // RED
   RWinRed1Clicked = false;
-  document.getElementById("RWinRed1").style.backgroundColor = "white";
+  document.getElementById("RWinRed1").style.backgroundColor = "rgb(39, 39, 39)";
   document.getElementById("RWinRed1").style.boxShadow = "none";
   RWinRed2Clicked = false;
-  document.getElementById("RWinRed2").style.backgroundColor = "white";
+  document.getElementById("RWinRed2").style.backgroundColor = "rgb(39, 39, 39)";
   document.getElementById("RWinRed2").style.boxShadow = "none";
   // BLUE
   RWinBlue1Clicked = false;
-  document.getElementById("RWinBlue1").style.backgroundColor = "white";
+  document.getElementById("RWinBlue1").style.backgroundColor =
+    "rgb(39, 39, 39)";
   document.getElementById("RWinBlue1").style.boxShadow = "none";
   RWinBlue2Clicked = false;
-  document.getElementById("RWinBlue2").style.backgroundColor = "white";
+  document.getElementById("RWinBlue2").style.backgroundColor =
+    "rgb(39, 39, 39)";
   document.getElementById("RWinBlue2").style.boxShadow = "none";
 });
