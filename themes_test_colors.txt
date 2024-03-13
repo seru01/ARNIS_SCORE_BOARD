@@ -99,6 +99,7 @@ body {
   background-color: aqua;
 }
 #Round {
+  width: 50vh;  
   display: flex;
   justify-content: center;
   align-items: center;

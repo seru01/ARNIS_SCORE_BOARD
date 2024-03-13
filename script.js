@@ -4,7 +4,7 @@ const increaseButton = document.getElementById("RedincreseScore");
 const decreaseButton = document.getElementById("RedDecreseScore");
 let redScore = 0;
 increaseButton.addEventListener("click", () => {
-  if (redScore < 5) {
+  if (redScore < 9) {
     redScore++;
     redScoreDisplay.textContent = redScore;
   }
@@ -20,33 +20,59 @@ const redFoulDisplay = document.getElementById("FoulCountRed");
 const IncRedFoulBtn = document.getElementById("RedFoulInc");
 const DecRedFoulBtn = document.getElementById("RedFoulDec");
 let Redfoul = 0;
+
+function setRedFoulStyle() {
+  if (Redfoul > 0) {
+    redFoulDisplay.style.color = "#ff0000";
+    redFoulDisplay.style.textShadow = "0 0 10px #ff0000";
+  } else {
+    redFoulDisplay.style.textShadow = "none"; // Remove glow effect
+  }
+}
+
 IncRedFoulBtn.addEventListener("click", () => {
   if (Redfoul < 3) {
     Redfoul++;
     redFoulDisplay.textContent = Redfoul;
+    setRedFoulStyle();
   }
 });
+
 DecRedFoulBtn.addEventListener("click", () => {
   if (Redfoul > 0) {
     Redfoul--;
     redFoulDisplay.textContent = Redfoul;
+    setRedFoulStyle();
   }
 });
-//RED DISARM
+// RED DISARM
 const redDisarmDisplay = document.getElementById("RedDisarmCount");
 const IncRedDisarmBtn = document.getElementById("RedDisarmInc");
 const DecRedDisarmBtn = document.getElementById("RedDisarmDec");
 let RedDisarm = 0;
+
+function setRedDisarmStyle() {
+  if (RedDisarm > 0) {
+    redDisarmDisplay.style.color = "#ff0000";
+    redDisarmDisplay.style.textShadow = "0 0 10px #ff0000";
+  } else {
+    redDisarmDisplay.style.textShadow = "none"; // Remove glow effect
+  }
+}
+
 IncRedDisarmBtn.addEventListener("click", () => {
   if (RedDisarm < 2) {
     RedDisarm++;
     redDisarmDisplay.textContent = RedDisarm;
+    setRedDisarmStyle();
   }
 });
+
 DecRedDisarmBtn.addEventListener("click", () => {
   if (RedDisarm > 0) {
     RedDisarm--;
     redDisarmDisplay.textContent = RedDisarm;
+    setRedDisarmStyle();
   }
 });
 // BLUE SCORE
@@ -57,7 +83,7 @@ const BLdecreaseButton = document.getElementById("BlueDecreseScore");
 let BlueScore = 0;
 
 BLincreaseButton.addEventListener("click", () => {
-  if (BlueScore < 5) {
+  if (BlueScore < 9) {
     BlueScore++;
     BLScoreDisplay.textContent = BlueScore;
   }
@@ -76,16 +102,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const IncBlueFoulBtn = document.getElementById("BlueFoulInc");
   const DecBlueFoulBtn = document.getElementById("BlueFoulDec");
   let Bluefoul = 0;
+  function setBlueFoulStyle() {
+    if (Bluefoul > 0) {
+      blueFoulDisplay.style.color = "#0011ff";
+      blueFoulDisplay.style.textShadow = "0 0 10px #0011ff";
+    } else {
+      blueFoulDisplay.style.textShadow = "none"; // Remove glow effect
+    }
+  }
   IncBlueFoulBtn.addEventListener("click", () => {
     if (Bluefoul < 3) {
       Bluefoul++;
       blueFoulDisplay.textContent = Bluefoul;
+      setBlueFoulStyle();
     }
   });
   DecBlueFoulBtn.addEventListener("click", () => {
     if (Bluefoul > 0) {
       Bluefoul--;
       blueFoulDisplay.textContent = Bluefoul;
+      setBlueFoulStyle();
     }
   });
   // clearing
@@ -96,12 +132,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // RESET BLUE FOUL
     Bluefoul = 0;
     blueFoulDisplay.textContent = Bluefoul;
+    setBlueFoulStyle();
   });
 
   newgamebtn.addEventListener("click", () => {
     // RESET BLUE FOUL
     Bluefoul = 0;
     blueFoulDisplay.textContent = Bluefoul;
+    setBlueFoulStyle();
   });
 });
 //Blue DISARM
@@ -111,16 +149,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const IncBlueDisarmBtn = document.getElementById("BlueDisarmInc");
   const DecBlueDisarmBtn = document.getElementById("BlueDisarmDec");
   let BlueDisarm = 0;
+  function setBlueDisarmStyle() {
+    if (BlueDisarm > 0) {
+      blueDisarmDisplay.style.color = "#0011ff";
+      blueDisarmDisplay.style.textShadow = "0 0 20px #0011ff";
+    } else {
+      blueDisarmDisplay.style.textShadow = "none"; // Remove glow effect
+    }
+  }
   IncBlueDisarmBtn.addEventListener("click", () => {
     if (BlueDisarm < 2) {
       BlueDisarm++;
       blueDisarmDisplay.textContent = BlueDisarm;
+      setBlueDisarmStyle();
     }
   });
   DecBlueDisarmBtn.addEventListener("click", () => {
     if (BlueDisarm > 0) {
       BlueDisarm--;
       blueDisarmDisplay.textContent = BlueDisarm;
+      setBlueDisarmStyle();
     }
   });
   const resetButton = document.getElementById("RESETBTN");
@@ -129,11 +177,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // RESET BLUE DISARM
     BlueDisarm = 0;
     blueDisarmDisplay.textContent = BlueDisarm;
+    setBlueDisarmStyle();
   });
   newgamebtn.addEventListener("click", () => {
     // RESET BLUE DISARM
     BlueDisarm = 0;
     blueDisarmDisplay.textContent = BlueDisarm;
+    setBlueDisarmStyle();
   });
 });
 
@@ -230,14 +280,21 @@ document.getElementById("AdvantageCLR").addEventListener("click", function () {
 const roundIncButton = document.getElementById("RoundInc");
 const roundDecButton = document.getElementById("RoundDec");
 const roundClearButton = document.getElementById("RoundClear");
-const roundCountElement = document.getElementById("RoundCount");
+const roundCountElement = document.querySelector(".RoundCount");
 
 // Initial round count
 let roundCount = 1;
 
-// Function to update round count and display
 function updateRoundCount() {
-  roundCountElement.textContent = roundCount;
+  roundCountElement.textContent = "ROUND " + roundCount;
+  // SET Round Color
+  if (roundCount === 1) {
+    roundCountElement.style.color = "yellow";
+  } else if (roundCount === 2) {
+    roundCountElement.style.color = "orange";
+  } else if (roundCount === 3) {
+    roundCountElement.style.color = "red";
+  }
 }
 
 // Event listener for the increment button
@@ -258,6 +315,7 @@ roundDecButton.addEventListener("click", function () {
 roundClearButton.addEventListener("click", function () {
   roundCount = 1;
   roundCountElement.textContent = roundCount;
+  updateRoundCount();
 });
 
 // RED WINNER INDICATOR
@@ -340,9 +398,11 @@ resetButton.addEventListener("click", () => {
   // RESET RED FOUL
   Redfoul = 0;
   redFoulDisplay.textContent = Redfoul;
+  setRedFoulStyle();
   // RESET RED DISARM
   RedDisarm = 0;
   redDisarmDisplay.textContent = RedDisarm;
+  setRedDisarmStyle();
   // RESET BLUE SCORE
   BlueScore = 0;
   BLScoreDisplay.textContent = BlueScore;
@@ -363,9 +423,11 @@ newgamebtn.addEventListener("click", () => {
   // RESET RED FOUL
   Redfoul = 0;
   redFoulDisplay.textContent = Redfoul;
+  setRedFoulStyle();
   // RESET RED DISARM
   RedDisarm = 0;
   redDisarmDisplay.textContent = RedDisarm;
+  setRedDisarmStyle();
   // RESET BLUE SCORE
   BlueScore = 0;
   BLScoreDisplay.textContent = BlueScore;
@@ -377,6 +439,7 @@ newgamebtn.addEventListener("click", () => {
   //RESET ROUND COUNT
   roundCount = 1;
   roundCountElement.textContent = roundCount;
+  updateRoundCount();
   //RESET ROUND WINNER INDICATOR
   // RED
   RWinRed1Clicked = false;
@@ -394,4 +457,15 @@ newgamebtn.addEventListener("click", () => {
   document.getElementById("RWinBlue2").style.backgroundColor =
     "rgb(39, 39, 39)";
   document.getElementById("RWinBlue2").style.boxShadow = "none";
+
+  // CLEAR LIFE RED BAR NAME
+  const RedLifeBarInput = document
+    .getElementById("RedLifeBar")
+    .querySelector("input");
+  RedLifeBarInput.value = "";
+  // CLEAR LIFE BLUE BAR NAME
+  const BlueLifeBarInput = document
+    .getElementById("BlueLifeBar")
+    .querySelector("input");
+  BlueLifeBarInput.value = "";
 });

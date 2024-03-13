@@ -12,6 +12,8 @@ body {
   height: 10vh;
   width: 100vw;
   background-color: rgb(255, 49, 49);
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
 }
 .ScoreBoard {
   height: 60vh;
@@ -19,6 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: rgb(0, 0, 0);
+  border-bottom: 1px solid white;
 }
 .ControlPanel {
   height: 30vh;
@@ -26,11 +29,11 @@ body {
   background-color: rgb(26, 26, 26);
 }
 
-.GameStatus,
+/* .GameStatus,
 .ControlPanel,
 .ScoreBoard {
   border: 1px solid white;
-}
+} */
 
 /* GAME STATUS */
 .GameStatus::after {
@@ -47,18 +50,54 @@ body {
 }
 
 #RedLifeBar {
-  height: 5vh;
+  height: 6vh;
   border-radius: 10px;
   margin-left: 10px;
-  width: 50%;
-  background-color: red;
+  width: 60%;
+  background-color: rgb(255, 0, 0);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#RedLifeBar input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 5px;
+  font-size: 25px;
+  box-sizing: border-box;
+  font-weight: bolder;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  text-align: center; /* Center align the text */
 }
 #BlueLifeBar {
-  height: 5vh;
+  height: 6vh;
   border-radius: 10px;
   margin-right: 10px;
-  width: 50%;
+  width: 60%;
   background-color: rgb(0, 0, 255);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#BlueLifeBar input {
+  width: 100%; /* Adjust as needed */
+  height: 100%; /* Adjust as needed */
+  border: none;
+  padding: 5px;
+  font-size: 25px;
+  box-sizing: border-box;
+  font-weight: bolder;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  text-align: center; /* Center align the text */
 }
 
 .WinStat {
@@ -115,7 +154,7 @@ body {
 .RoundCount {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 80px;
-  color: white;
+  color: yellow;
   text-align: center;
 }
 
@@ -136,6 +175,7 @@ body {
   display: flex;
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
+  border: 1px solid white;
 }
 
 .ScoreCountRedBG {
@@ -229,12 +269,12 @@ body {
 
 .Foul {
   background-color: rgb(24, 24, 24);
-  border: 1px solid rgb(255, 255, 255);
+  /* border: 1px solid rgb(255, 255, 255); */
 }
 
 .Disarm {
   background-color: rgb(24, 24, 24);
-  border: 1px solid rgb(255, 255, 255);
+  /* border: 1px solid rgb(255, 255, 255); */
 }
 /* BLUE SCORE CONTENT */
 .column#BlueScore {
@@ -255,14 +295,14 @@ body {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 #FoulCountRed {
-  color: #ff6600;
+  color: #ff0000;
   margin: 0%;
   text-align: center;
   font-size: 100px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 #FoulCountBlue {
-  color: #ff6600;
+  color: #0011ff;
   margin: 0%;
   text-align: center;
   font-size: 100px;
@@ -281,13 +321,17 @@ body {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 .DisarmCount {
-  color: #ff6600;
   margin: 0%;
   text-align: center;
   font-size: 100px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
-
+#RedDisarmCount {
+  color: #ff0000;
+}
+#BlueDisarmCount {
+  color: #0011ff;
+}
 /* SCORE COUNT  */
 
 /* CONTROL PANEL */
