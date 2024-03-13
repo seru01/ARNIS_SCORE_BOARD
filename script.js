@@ -88,9 +88,17 @@ document.addEventListener("DOMContentLoaded", function () {
       blueFoulDisplay.textContent = Bluefoul;
     }
   });
+  // clearing
   const resetButton = document.getElementById("RESETBTN");
+  const newgamebtn = document.getElementById("NEWGAME");
 
   resetButton.addEventListener("click", () => {
+    // RESET BLUE FOUL
+    Bluefoul = 0;
+    blueFoulDisplay.textContent = Bluefoul;
+  });
+
+  newgamebtn.addEventListener("click", () => {
     // RESET BLUE FOUL
     Bluefoul = 0;
     blueFoulDisplay.textContent = Bluefoul;
@@ -116,8 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   const resetButton = document.getElementById("RESETBTN");
-
+  const newgamebtn = document.getElementById("NEWGAME");
   resetButton.addEventListener("click", () => {
+    // RESET BLUE DISARM
+    BlueDisarm = 0;
+    blueDisarmDisplay.textContent = BlueDisarm;
+  });
+  newgamebtn.addEventListener("click", () => {
     // RESET BLUE DISARM
     BlueDisarm = 0;
     blueDisarmDisplay.textContent = BlueDisarm;
