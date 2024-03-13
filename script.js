@@ -26,7 +26,7 @@ function setRedFoulStyle() {
     redFoulDisplay.style.color = "#ff0000";
     redFoulDisplay.style.textShadow = "0 0 10px #ff0000";
   } else {
-    redFoulDisplay.style.textShadow = "none"; // Remove glow effect
+    redFoulDisplay.style.textShadow = "none";
   }
 }
 
@@ -56,7 +56,7 @@ function setRedDisarmStyle() {
     redDisarmDisplay.style.color = "#ff0000";
     redDisarmDisplay.style.textShadow = "0 0 10px #ff0000";
   } else {
-    redDisarmDisplay.style.textShadow = "none"; // Remove glow effect
+    redDisarmDisplay.style.textShadow = "none";
   }
 }
 
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
       blueFoulDisplay.style.color = "#0011ff";
       blueFoulDisplay.style.textShadow = "0 0 10px #0011ff";
     } else {
-      blueFoulDisplay.style.textShadow = "none"; // Remove glow effect
+      blueFoulDisplay.style.textShadow = "none";
     }
   }
   IncBlueFoulBtn.addEventListener("click", () => {
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
       blueDisarmDisplay.style.color = "#0011ff";
       blueDisarmDisplay.style.textShadow = "0 0 20px #0011ff";
     } else {
-      blueDisarmDisplay.style.textShadow = "none"; // Remove glow effect
+      blueDisarmDisplay.style.textShadow = "none";
     }
   }
   IncBlueDisarmBtn.addEventListener("click", () => {

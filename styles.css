@@ -72,7 +72,7 @@ body {
   border-radius: 10px;
   background: transparent;
   color: white;
-  text-align: center; /* Center align the text */
+  text-align: center;
 }
 #BlueLifeBar {
   height: 6vh;
@@ -87,8 +87,8 @@ body {
 }
 
 #BlueLifeBar input {
-  width: 100%; /* Adjust as needed */
-  height: 100%; /* Adjust as needed */
+  width: 100%;
+  height: 100%;
   border: none;
   padding: 5px;
   font-size: 25px;
@@ -97,7 +97,7 @@ body {
   border-radius: 10px;
   background: transparent;
   color: white;
-  text-align: center; /* Center align the text */
+  text-align: center;
 }
 
 .WinStat {
@@ -170,11 +170,11 @@ body {
 }
 .ScoreCountRedBG,
 .ScoreCountBlueBG {
-  width: 50%; /* Each container takes half of the space */
-  height: 100%; /* Fill the parent container */
+  width: 50%;
+  height: 100%;
   display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  align-items: center;
+  justify-content: center;
   border: 1px solid white;
 }
 
@@ -208,33 +208,33 @@ body {
   align-items: center;
   height: 60vh;
   background-color: rgb(255, 217, 0);
-  position: relative; /* Ensure relative positioning for child elements */
+  position: relative;
 }
 
 .timeCount {
-  font-size: 15vw; /* Using viewport width for responsive font size */
+  font-size: 15vw;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  margin: auto; /* Adjust top and bottom margin as needed */
-  z-index: 2; /* Ensure the timeCount is above the other elements */
-  position: relative; /* Ensure relative positioning for stacking context */
+  margin: auto;
+  z-index: 2;
+  position: relative;
 }
 
 .AvantageIndupper,
 .AvantageIndlower {
-  width: 10vw; /* Using viewport width for responsive width */
-  border-left: 8vw solid transparent; /* Using viewport width for responsive width */
-  border-right: 8vw solid transparent; /* Using viewport width for responsive width */
-  position: absolute; /* Position these elements absolutely within Timer */
+  width: 10vw;
+  border-left: 8vw solid transparent;
+  border-right: 8vw solid transparent;
+  position: absolute;
 }
 
 .AvantageIndupper {
-  border-top: 11vh solid #131313; /* Using viewport height for responsive border thickness */
-  top: 0; /* Position at the top */
+  border-top: 11vh solid #131313;
+  top: 0;
 }
 
 .AvantageIndlower {
-  border-bottom: 11vh solid #131313; /* Using viewport height for responsive border thickness */
-  bottom: 0; /* Position at the bottom */
+  border-bottom: 11vh solid #131313;
+  bottom: 0;
 }
 
 #BlueScore {
@@ -243,13 +243,13 @@ body {
 }
 /* RED SCORE CONTENT */
 .column#RedScore {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically */
+  display: flex;
+  align-items: center;
 }
 .ScoreCard {
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 0;
   height: 60vh;
   width: 60vh;
@@ -264,7 +264,7 @@ body {
 }
 .Foul,
 .Disarm {
-  flex: 1; /* Equal distribution of space */
+  flex: 1;
 }
 
 .Foul {
@@ -278,8 +278,8 @@ body {
 }
 /* BLUE SCORE CONTENT */
 .column#BlueScore {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically */
+  display: flex;
+  align-items: center;
 }
 
 /* Foul */
@@ -338,7 +338,7 @@ body {
 #RedControlls,
 #BlueControlls {
   display: flex;
-  flex-direction: column; /* Change flex direction to column */
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   height: 25vh;
@@ -415,7 +415,7 @@ body {
 }
 .RoundControlNavs {
   display: flex;
-  justify-content: space-evenly; /* Center items horizontally */
+  justify-content: space-evenly;
 }
 .RctrlBTN {
   margin-top: 10px;
