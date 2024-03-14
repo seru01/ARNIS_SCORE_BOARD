@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function setBlueDisarmStyle() {
     if (BlueDisarm > 0) {
       blueDisarmDisplay.style.color = "#0011ff";
-      blueDisarmDisplay.style.textShadow = "0 0 20px #0011ff";
+      blueDisarmDisplay.style.textShadow = "0 0 10px #0011ff";
     } else {
       blueDisarmDisplay.style.textShadow = "none";
     }
