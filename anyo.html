@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>anyo-score-system</title>
+    <style>
+      :root {
+        --borderRadius: 20px;
+        --background-color: #121212;
+        --text-color: #e0e0e0;
+        --table-header-bg: #333;
+        --table-cell-bg: #1c1c1c;
+        --table-border-color: #444;
+        --button-bg: #000000;
+        --button-hover-bg: #0056b3;
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0%;
+        margin: 0%;
+        height: 100vh;
+      }
+
+      .main-content {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+        width: 80vw;
+        border-radius: 20px;
+        border: 1px solid var(--table-border-color);
+      }
+
+      .main-info-content {
+        color: var(--text-color);
+        height: 10%;
+        width: 100%;
+        border-top-left-radius: var(--borderRadius);
+        border-top-right-radius: var(--borderRadius);
+        background-color: var(--table-header-bg);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .titleInput {
+        margin-left: 30px;
+        border-radius: 10px;
+        background-color: #333;
+        color: #fff;
+        height: 4vh;
+        width: 18vw;
+        border: 1px solid var(--table-border-color);
+        padding-left: 10px;
+      }
+
+      .playerCountBTN {
+        height: 4vh;
+        width: 2vw;
+        font-size: 20px;
+        font-weight: bolder;
+        border-radius: 100px;
+        margin-left: 30px;
+        background-color: var(--button-bg);
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .playerCountBTN:hover {
+        background-color: var(--button-hover-bg);
+      }
+
+      .downloadBTN {
+        font-size: 1.5vw;
+        margin-left: auto;
+        margin-right: 30px;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        /* margin-top: 20px; */
+        background-color: var(--table-cell-bg);
+      }
+      td input {
+        color: #fff;
+        background-color: var(--table-header-bg);
+        border-radius: 5px;
+        text-align: center;
+      }
+      th,
+      td {
+        color: var(--text-color);
+        border: 1px solid var(--table-border-color);
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: var(--table-header-bg);
+      }
+
+      .highlight {
+        color: orange !important;
+      }
+      .ads {
+        text-align: center;
+        width: 100%;
+        /* background-color: aqua; */
+      }
+
+      .ads h1 {
+        font-size: 3em;
+        font-weight: bolder;
+        font-stretch: expanded;
+        background: -webkit-linear-gradient(rgb(241, 180, 12), rgb(212, 4, 4));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        /* white-space: nowrap;  */
+        /* display: inline-block; */
+        /* animation: marquee 10s linear infinite; */
+      }
+      
+  /* @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  } */
+    </style>
+  </head>
+  <body>
+    <div class="ads">
+      <h1>ARNIS ANYO</h1>
+    </div>
+    <div class="main-content">
+      <div class="main-info-content">
+        <input class="titleInput" id="titleInput" type="text" />
+        <button class="playerCountBTN" onclick="addRow()">+</button>
+        <span class="downloadBTN" onclick="downloadCSV()">&#x1F4E9;</span>
+      </div>
+      <div class="mains-score-panel">
+        <table>
+          <thead>
+            <tr>
+              <th>PLAYER</th>
+              <th>JUDGE1</th>
+              <th>JUDGE2</th>
+              <th>JUDGE3</th>
+              <th>TIME</th>
+              <th>SCORE</th>
+              <th>RANK</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="table-content"></tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      function addRow() {
+        let tbody = document.getElementById("table-content");
+        let row = document.createElement("tr");
+
+        let playerCell = document.createElement("td");
+        let playerInput = document.createElement("input");
+        playerInput.type = "text";
+        playerCell.appendChild(playerInput);
+        row.appendChild(playerCell);
+
+        let scores = [];
+        for (let i = 0; i < 3; i++) {
+          let scoreCell = document.createElement("td");
+          let scoreInput = document.createElement("input");
+          scoreInput.type = "number";
+          scoreInput.min = 0;
+          scoreInput.max = 100;
+          scoreInput.oninput = updateScores;
+          scoreCell.appendChild(scoreInput);
+          row.appendChild(scoreCell);
+          scores.push(scoreInput);
+        }
+
+        let timeCell = document.createElement("td");
+        let timeInput = document.createElement("input");
+        timeInput.type = "number";
+        timeInput.min = 0;
+        timeInput.max = 100;
+        timeCell.appendChild(timeInput);
+        row.appendChild(timeCell);
+
+        let scoreTotalCell = document.createElement("td");
+        row.appendChild(scoreTotalCell);
+
+        let rankCell = document.createElement("td");
+        row.appendChild(rankCell);
+
+        let actionCell = document.createElement("td");
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.onclick = function () {
+          row.remove();
+          updateScores();
+        };
+        actionCell.appendChild(deleteBtn);
+        row.appendChild(actionCell);
+
+        tbody.appendChild(row);
+      }
+
+      function updateScores() {
+        let rows = document.querySelectorAll("#table-content tr");
+        let players = [];
+
+        rows.forEach((row) => {
+          let inputs = row.querySelectorAll("input[type='number']");
+          let timeInput = row.cells[4].querySelector("input");
+          let totalScore =
+            [...inputs]
+              .slice(0, 5)
+              .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0) /
+            3;
+          let timeValue = parseInt(timeInput.value) || Infinity;
+          row.cells[5].textContent = totalScore.toFixed(2);
+          players.push({ row, totalScore, timeValue });
+        });
+
+        players.sort((a, b) => {
+          if (b.totalScore !== a.totalScore) {
+            return b.totalScore - a.totalScore;
+          }
+          return a.timeValue - b.timeValue;
+        });
+
+        players.forEach((player, index) => {
+          player.row.cells[6].textContent = index + 1;
+        });
+
+        let scoresMap = new Map();
+        players.forEach((player) => {
+          let score = player.totalScore.toFixed(2);
+          if (!scoresMap.has(score)) {
+            scoresMap.set(score, []);
+          }
+          scoresMap.get(score).push(player.row);
+        });
+
+        scoresMap.forEach((rows) => {
+          if (rows.length > 1) {
+            rows.forEach((row) => row.cells[5].classList.add("highlight"));
+          } else {
+            rows.forEach((row) => row.cells[5].classList.remove("highlight"));
+          }
+        });
+      }
+
+      function downloadCSV() {
+        let titleInput = document.querySelector(".titleInput").value;
+        let rows = document.querySelectorAll("table tbody tr");
+        let csv = [];
+        let header = [];
+        document.querySelectorAll("table th").forEach((th) => {
+          header.push(th.innerText);
+        });
+        csv.push(header.join(","));
+        rows.forEach((row) => {
+          let rowData = [];
+          let cells = row.querySelectorAll("td");
+          rowData.push(cells[0].querySelector("input").value);
+          for (let i = 1; i <= 3; i++) {
+            rowData.push(cells[i].querySelector("input").value);
+          }
+          rowData.push(cells[4].querySelector("input").value);
+          rowData.push(cells[5].innerText);
+          rowData.push(cells[6].innerText);
+          csv.push(rowData.join(","));
+        });
+        let csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+        let downloadLink = document.createElement("a");
+        downloadLink.href = URL.createObjectURL(csvFile);
+        downloadLink.download = titleInput + ".csv";
+        downloadLink.click();
+      }
+    </script>
+  </body>
+</html>
