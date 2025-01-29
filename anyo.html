@@ -230,7 +230,7 @@
           let totalScore =
             [...inputs]
               .slice(0, 5)
-              .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0) /
+              .reduce((sum, input) => sum + (parseInt(input.value) || 0), 0) /
             3;
           let timeValue = parseInt(timeInput.value) || Infinity;
           row.cells[5].textContent = totalScore.toFixed(2);
