@@ -229,7 +229,7 @@
           let timeInput = row.cells[4].querySelector("input");
           let totalScore =
             [...inputs]
-              .slice(0, 5)
+              .slice(0, 3)
               .reduce((sum, input) => sum + (parseInt(input.value) || 0), 0) /
             3;
           let timeValue = parseInt(timeInput.value) || Infinity;
